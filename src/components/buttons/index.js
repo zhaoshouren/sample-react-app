@@ -29,5 +29,5 @@ export function GetTranscriptButton(props) {
 GetTranscriptButton.defaultProps = {
     id: "getTranscriptButton_" + new Date().getTime(),
     children: "Get Transcript",
-    url: process.env.REACT_APP_GET_TRANSCRIPT_URL || window.env.GET_TRANSCRIPT_URL
+    url: process.env.REACT_APP_GET_TRANSCRIPT_URL || (window.env && window.env.GET_TRANSCRIPT_URL)
 }

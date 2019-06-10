@@ -1,4 +1,4 @@
-const gaMeasurementId = process.env.REACT_APP_GA_MEASUREMENT_ID || window.env.GA_MEASUREMENT_ID;
+const gaMeasurementId = process.env.REACT_APP_GA_MEASUREMENT_ID || (window.env && window.env.GA_MEASUREMENT_ID);
 
 export function send(event) {
     if (gaMeasurementId) {
