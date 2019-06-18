@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { GetTranscriptButton } from "components/buttons";
+import { Question as YesNoQuestion, YesNoWizard } from 'components/forms';
 
 function App() {
   return (
@@ -20,7 +20,17 @@ function App() {
           Learn React
         </a> */}
       </header>
-      <GetTranscriptButton/>
+      <YesNoWizard continueTo={() => alert('continueTo')}>
+        <YesNoQuestion continueOn="yes" final={<p>Question 1: final</p>}>
+          <p>Question 1: Lorem ipsum</p>
+        </YesNoQuestion>
+        <YesNoQuestion continueOn="yes" final={<p>Question 2: final</p>}>
+          <p>Question 2: Lorem ipsum</p>
+        </YesNoQuestion>
+        <YesNoQuestion continueOn="no" final={<p>Question 3: final</p>}>
+          <p>Question 3: Lorem ipsum</p>
+        </YesNoQuestion>
+      </YesNoWizard>
     </div>
   );
 }
