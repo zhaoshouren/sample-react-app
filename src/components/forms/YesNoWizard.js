@@ -1,11 +1,7 @@
 import React from 'react';
 
-export function Question (props) {
-    return (
-        <React.Fragment>
-            {props.children}
-        </React.Fragment>
-    );
+export function YesNoQuestion (props) {
+    return props.children ? (<>{props.children}</>) : "Expected children for YesNoQuestion.";
 }
 
 export class YesNoWizard extends React.Component {
@@ -42,7 +38,7 @@ export class YesNoWizard extends React.Component {
         } else if (answers.length + 1 === this.props.children.length) {
             this.props.continueTo();
         } else {
-            document.getElementsByName("radio").forEach(element => {
+            document.getElementsByName("yesno").forEach(element => {
                 if (element.checked) {
                     element.checked = false;
                 }
@@ -55,27 +51,30 @@ export class YesNoWizard extends React.Component {
     render() {
         const index = this.state.answers.length;
         const final = this.state.final;
+        const children = this.props.children;
 
         if (final) {
             return final;
         }
 
-        if (index < this.props.children.length) {
+        if (children && index < children.length) {
             return (
                 <form onSubmit={this.handleSubmit}>
                     {this.props.children[index]}
-                    <label>
-                        <input name="radio" type="radio" value="yes" onChange={this.handleChange} />
+                    <label htmlFor="yesno1">
+                        <input id="yesno1" name="yesno" type="radio" value="yes" onChange={this.handleChange} />
                         Yes
                     </label><br />
-                    <label>
-                        <input name="radio" type="radio" value="no" onChange={this.handleChange} />
+                    <label htmlFor="yesno2">
+                        <input id="yesno2" name="yesno" type="radio" value="no" onChange={this.handleChange} />
                         No
                     </label><br />
                     <button type="submit" disabled={this.state.disabled}>Continue</button>
                 </form>
             );
-        } 
+        } else if (!children) {
+            return "Expected children for YesNoWizard."
+        }
         
         return null;
     }

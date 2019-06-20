@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Question as YesNoQuestion, YesNoWizard } from 'components/forms';
+import { YesNoQuestion, YesNoWizard } from 'components/forms/YesNoWizard';
 
 function App() {
   return (
