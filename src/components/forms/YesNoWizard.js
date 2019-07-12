@@ -4,7 +4,7 @@ export function YesNoQuestion (props) {
     return props.children ? (<>{props.children}</>) : "Expected children for YesNoQuestion.";
 }
 
-export class YesNoWizard extends React.Component {
+export default class YesNoWizard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,25 +57,25 @@ export class YesNoWizard extends React.Component {
             return final;
         }
 
-        if (children && index < children.length) {
-            return (
-                <form onSubmit={this.handleSubmit}>
-                    {this.props.children[index]}
-                    <label htmlFor="yesno1">
-                        <input id="yesno1" name="yesno" type="radio" value="yes" onChange={this.handleChange} />
-                        Yes
-                    </label><br />
-                    <label htmlFor="yesno2">
-                        <input id="yesno2" name="yesno" type="radio" value="no" onChange={this.handleChange} />
-                        No
-                    </label><br />
-                    <button type="submit" disabled={this.state.disabled}>Continue</button>
-                </form>
-            );
-        } else if (!children) {
+        if (children) {
+            if (index < children.length) {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        {this.props.children[index]}
+                        <label htmlFor="yesno1">
+                            <input id="yesno1" name="yesno" type="radio" value="yes" onChange={this.handleChange} />
+                            Yes
+                        </label><br />
+                        <label htmlFor="yesno2">
+                            <input id="yesno2" name="yesno" type="radio" value="no" onChange={this.handleChange} />
+                            No
+                        </label><br />
+                        <button type="submit" disabled={this.state.disabled} default>Continue</button>
+                    </form>
+                );
+            }
+        } else {
             return "Expected children for YesNoWizard."
         }
-        
-        return null;
     }
 }

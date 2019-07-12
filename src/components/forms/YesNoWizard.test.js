@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { YesNoWizard, YesNoQuestion } from './YesNoWizard';
+import YesNoWizard, { YesNoQuestion } from './YesNoWizard';
 
 describe('YesNoWizard', () => {
   it('renders YesNoWizard without crashing', () => {

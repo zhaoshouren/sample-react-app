@@ -1,6 +1,28 @@
 {
     "version": "0.2.0",
     "configurations": [
+
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome: Create React App",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}/public"
+      },
+      {
+        "type": "chrome",
+        "request": "attach",
+        "name": "Attach to Chrome: Create React App",
+        "port": 9222,
+        "webRoot": "${workspaceFolder}/public"
+      },
+      {
+        "type": "edge",
+        "request": "attach",
+        "name": "Attach to Edge: Create React App",
+        "port": 2015,
+        "webRoot": "${workspaceFolder}/public"
+      },
       {
         "name": "Debug CRA Tests",
         "type": "node",
