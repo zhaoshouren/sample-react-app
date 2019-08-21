@@ -33,9 +33,7 @@ class App extends React.Component  {
           <p>Question 3: Lorem ipsum</p>
         </YesNoQuestion>
       </YesNoWizard>,
-      <form>
-        <ConditionalInput/>
-      </form>
+      <ConditionalInput/>
     ];
 
 
